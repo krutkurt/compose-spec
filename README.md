@@ -1,18 +1,12 @@
 # Compose Specification
+{:.no_toc}
 
 The Compose specification establishes a standard for the definition of
 multi-container platform-agnostic applications. The specification can be found
 [here](spec.md).
 
-<!-- Logo coming soon! -->
-
-## Table of Contents
-
-Additional documentation about how this group operates:
-* [Governance](GOVERNANCE.md)
-* [Contribution Guidelines](CONTRIBUTING.md)
-* [Implementations](#Implementations)
-* [Releases](https://github.com/docker/compose-spec/releases)
+* ToC
+{:toc}
 
 ## Use cases
 
@@ -36,10 +30,9 @@ APIs to manage networking services, container deployments and their lifecycles.
 While this offers flexibility to address many operator use cases, it makes
 simple use cases, like the developer use case, more complicated to express than
 they need to be. Projects like [Kompose](https://github.com/kubernetes/kompose)
-and [Compose on Kubernetes](https://github.com/docker/compose-on-kubernetes)
-show how the simpler Compose model can be translated into Kubernetes API
-payloads and make the Compose file the source of truth for development and
-deployment.
+or [Okteto Stacks](https://okteto.com/docs/reference/stacks) show how the
+simpler Compose model can be translated into Kubernetes API payloads and make
+the Compose file the source of truth for development and deployment.
 
 ### Cloud providers
 
@@ -62,10 +55,14 @@ The specification and code is licensed under the Apache 2.0 license found in the
 
 ## Implementations
 
-* [docker-compose](https://github.com/docker/compose)
-* Docker CLI (`docker stack` command)
-* [Compose on Kubernetes](https://github.com/docker/compose-on-kubernetes)
+[Docker Compose](https://github.com/docker/compose) is the Reference Implementation of the Compose Specification.
+
+Compose Specification is also implemented by:
+
 * [Kompose](https://github.com/kubernetes/kompose)
+* [Nerdctl](https://github.com/containerd/nerdctl)
+* [Okteto Stacks](https://okteto.com/docs/reference/stacks)
+* [Docker Cloud Integrations](https://github.com/docker/compose-cli)
 
 | Metadata |                  |
 | -------- | ---------------: |

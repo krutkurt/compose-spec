@@ -1,6 +1,10 @@
 # The Compose Specification - Deployment support
+{:.no_toc}
 
 *Note:* Deployment is an OPTIONAL part of the Compose Specification
+
+* ToC
+{:toc}
 
 ## Introduction
 
@@ -43,7 +47,7 @@ services:
 ### labels
 
 `labels` specifies metadata for the service. These labels MUST *only* be set on the service and *not* on any containers for the service.
-This assumes the platform as some native concept of "service" that can match Compose application model.
+This assumes the platform has some native concept of "service" that can match Compose application model.
 
 ```yml
 services:
@@ -77,16 +81,16 @@ by a list or a map with string values.
 
 ```yml
 deploy:
-    placement:
+  placement:
     constraints:
-        - disktype=ssd
+      - disktype=ssd
 ```
 
 ```yml
 deploy:
-    placement:
+  placement:
     constraints:
-        disktype: ssd
+      disktype: ssd
 ```
 
 #### preferences
@@ -96,16 +100,16 @@ by a list or a map with string values.
 
 ```yml
 deploy:
-    placement:
+  placement:
     preferences:
-        - datacenter=us-east
+      - datacenter=us-east
 ```
 
 ```yml
 deploy:
-    placement:
+  placement:
     preferences:
-        datacenter: us-east
+      datacenter: us-east
 ```
 
 ### replicas
@@ -139,6 +143,7 @@ services:
         limits:
           cpus: '0.50'
           memory: 50M
+          pids: 1
         reservations:
           cpus: '0.25'
           memory: 20M
@@ -151,6 +156,10 @@ services:
 #### memory
 
 `memory` configures a limit or reservation on the amount of memory a container can allocate, set as a string expressing a [byte value](spec.md#specifying-byte-values).
+
+#### pids
+
+`pids` tunes a container’s PIDs limit, set as an integer.
 
 #### devices
 
@@ -249,11 +258,11 @@ deploy:
 
 ```yml
 deploy:
-    restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+  restart_policy:
+    condition: on-failure
+    delay: 5s
+    max_attempts: 3
+    window: 120s
 ```
 
 ### rollback_config
@@ -282,8 +291,8 @@ deploy:
 
 ```yml
 deploy:
-    update_config:
-        parallelism: 2
-        delay: 10s
-        order: stop-first
+  update_config:
+    parallelism: 2
+    delay: 10s
+    order: stop-first
 ```
